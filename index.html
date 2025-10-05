@@ -99,16 +99,18 @@
       margin-top: 10px;
     }
     .skill-bar div {
-      background: #007bff;
-      height: 100%;
-      text-align: right;
-      padding-right: 10px;
-      line-height: 20px;
-      color: white;
-      font-weight: bold;
-      border-radius: 20px 0 0 20px;
-      animation: fillBar 2s ease forwards;
-    }
+  background: #007bff;
+  height: 100%;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 20px;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px 0 0 20px;
+  width: 0;
+  animation: fillBar 2s ease forwards;
+  animation-delay: 0.5s;
+}
     @keyframes fillBar {
       from { width: 0; }
       to { width: inherit; }
@@ -131,6 +133,62 @@
         align-items: center;
       }
     }
+
+    /* Fade-in animation for sections */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delay for multiple cards */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardFadeIn 0.8s forwards;
+}
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+.card:nth-child(5) { animation-delay: 1s; }
+.card:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header text animation */
+header h1 {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: headerSlide 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes headerSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header p {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: headerSlide 1s forwards;
+  animation-delay: 1s;
+}
   </style>
 </head>
 <body>
@@ -149,7 +207,7 @@
   </header>
 
   <!-- Skills Section -->
-  <section id="skills">
+  <section id="skills" class="fade-in"> ... </section>
     <h2>Skills</h2>
     <div class="skills">
       <div class="card">
@@ -180,7 +238,7 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
+  <section id="projects" class="fade-in"> ... </section>
     <h2>Projects</h2>
     <div class="projects">
       <div class="card project-card">
@@ -202,7 +260,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="fade-in"> ... </section>
     <h2>Contact</h2>
     <div class="contact">
       <div class="card">
