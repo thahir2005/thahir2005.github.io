@@ -13,22 +13,47 @@
       color: #333;
       background: #f5f5f5;
     }
-    header {
-      background: #007bff;
-      color: white;
-      padding: 40px 20px;
+
+    /* Navigation */
+    nav {
       text-align: center;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #0056b3;
+    }
+
+    /* Header / About Me */
+    header {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     header h1 {
+      font-size: 3rem;
       margin: 0;
-      font-size: 2.5rem;
+      letter-spacing: 2px;
     }
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      margin-top: 10px;
+      font-weight: 500;
     }
+
+    /* Sections */
     section {
       padding: 40px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
     h2 {
@@ -36,6 +61,8 @@
       margin-bottom: 20px;
       text-align: center;
     }
+
+    /* Cards */
     .skills, .projects, .contact {
       display: flex;
       flex-wrap: wrap;
@@ -44,11 +71,16 @@
     }
     .card {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 12px;
       flex: 1 1 250px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
     }
     a {
       color: #007bff;
@@ -57,9 +89,24 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .skills, .projects, .contact {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <!-- Header / About Me -->
   <header>
@@ -87,7 +134,7 @@
       <div class="card">
         <h3>Portfolio Website</h3>
         <p>My professional portfolio hosted on GitHub Pages.</p>
-        <a href="https://github.com/thahir/thahir.github.io" target="_blank">View Project</a>
+        <a href="https://github.com/thahir2005/thahir2005.github.io" target="_blank">View Project</a>
       </div>
       <div class="card">
         <h3>Mini Automation Script</h3>
@@ -108,6 +155,18 @@
       </div>
     </div>
   </section>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
