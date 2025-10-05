@@ -90,6 +90,40 @@
       text-decoration: underline;
     }
 
+    /* Skill bars */
+    .skill-bar {
+      background: #e0e0e0;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      margin-top: 10px;
+    }
+    .skill-bar div {
+      background: #007bff;
+      height: 100%;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px 0 0 20px;
+      animation: fillBar 2s ease forwards;
+    }
+    @keyframes fillBar {
+      from { width: 0; }
+      to { width: inherit; }
+    }
+
+    /* Animated project cards */
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      background: #f0f8ff;
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
       .skills, .projects, .contact {
@@ -118,12 +152,30 @@
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills">
-      <div class="card">Linux</div>
-      <div class="card">AWS</div>
-      <div class="card">Git & GitHub</div>
-      <div class="card">Docker</div>
-      <div class="card">Jenkins / CI-CD</div>
-      <div class="card">Kubernetes (learning)</div>
+      <div class="card">
+        <h3>Linux</h3>
+        <div class="skill-bar"><div style="width: 90%;">90%</div></div>
+      </div>
+      <div class="card">
+        <h3>AWS</h3>
+        <div class="skill-bar"><div style="width: 80%;">80%</div></div>
+      </div>
+      <div class="card">
+        <h3>Git & GitHub</h3>
+        <div class="skill-bar"><div style="width: 85%;">85%</div></div>
+      </div>
+      <div class="card">
+        <h3>Docker</h3>
+        <div class="skill-bar"><div style="width: 75%;">75%</div></div>
+      </div>
+      <div class="card">
+        <h3>Jenkins / CI-CD</h3>
+        <div class="skill-bar"><div style="width: 70%;">70%</div></div>
+      </div>
+      <div class="card">
+        <h3>Kubernetes (learning)</h3>
+        <div class="skill-bar"><div style="width: 50%;">50%</div></div>
+      </div>
     </div>
   </section>
 
@@ -131,17 +183,17 @@
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">
+      <div class="card project-card">
         <h3>Mini scripts, automation, or cloud setups</h3>
         <p>Automated daily tasks and cloud experiments.</p>
         <a href="#" target="_blank">View Project</a>
       </div>
-      <div class="card">
+      <div class="card project-card">
         <h3>GitHub experiments</h3>
         <p>Practice projects and experiments hosted on GitHub.</p>
         <a href="#" target="_blank">View Project</a>
       </div>
-      <div class="card">
+      <div class="card project-card">
         <h3>Class or course projects</h3>
         <p>Projects completed during courses or classes.</p>
         <a href="#" target="_blank">View Project</a>
